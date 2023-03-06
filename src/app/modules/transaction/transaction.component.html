@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="card mb-5 mb-xl-10 col-lg-9">
+    <div
+      class="card-header border-0 cursor-pointer"
+      role="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#kt_account_profile_details"
+      aria-expanded="true"
+      aria-controls="kt_account_profile_details"
+    >
+      <div class="card-title m-0">
+        <h3 class="fw-bolder m-0">Transactions</h3>
+      </div>
+    </div>
+    <div id="kt_account_profile_details" class="collapse show">
+        <div class="card-body border-top p-9">
+          
+          <div class="row mb-6">
+            <label class="col-lg-4 col-form-label required fw-bold fs-6"
+              >Select Wallet to show transactions</label
+            >
+            <div class="col-lg-8 fv-row">
+              <select
+                class="form-select form-select-solid form-select-lg"
+                name="currency"
+                (change)="onWalletSelected(walletId)"
+                [(ngModel)]="walletId"
+              >
+                <option value="">Select a wallet..</option>
+                <option [value]="wallet.id" *ngFor="let wallet of userWallets">{{wallet.currencyCode}} - {{wallet.symbol}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <ng-container *ngIf="showContainer$ | async">
+      <app-wallet-balance-widget
+      svgIcon="./assets/media/icons/duotune/general/gen032.svg"
+      class="card bg-body hoverable card-xl-stretch mb-xl-8"
+      color="white"
+      iconColor="primary"
+      title="{{walletTransations.walletAccount.symbol}} {{walletTransations.walletAccount.realTrust}}"
+      description="Balance of {{walletTransations.walletAccount.currencyCode}} wallet."
+    ></app-wallet-balance-widget>
+    </ng-container>
+  </div>
+</div>
+
+
+<ng-container *ngIf="showContainer$ | async">
+  <!-- begin::Row -->
+  <div class="row g-5 g-xl-8">
+    <div class="col-xl-6">
+      <app-wallet-exchange [selectedAccount]="walletTransations.walletAccount"></app-wallet-exchange>
+    </div>
+    <div class="col-xl-6">
+      <app-transaction-list
+      class="card card-xl-stretch mb-5 mb-xl-8"
+      [list]="walletTransations.transactions"
+      ></app-transaction-list>
+    </div>
+  </div>
+  <!-- end::Row -->
+</ng-container>
+

@@ -1,0 +1,31 @@
+<!-- begin::Header -->
+<div class="card-header border-0">
+    <h3 class="card-title fw-bolder text-dark">Transaction List</h3>
+  </div>
+  <!-- end::Header -->
+  <!-- begin::Body -->
+  <div class="card-body pt-2">
+    <!-- begin::Item -->
+    <div class="d-flex align-items-center mb-8" *ngFor="let item of list">
+      <!-- begin::Bullet -->
+      <span class="bullet bullet-vertical h-40px bg-success"></span>
+      <!-- end::Bullet -->
+      <!-- begin::Checkbox -->
+      <div class="form-check form-check-custom form-check-solid mx-5">
+        <!-- <input class="form-check-input" type="checkbox" value="" /> -->
+      </div>
+      <!-- end::Checkbox -->
+      <!-- begin::Description -->
+      <div class="flex-grow-1">
+        <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">
+          {{item.symbol}} {{item.realAmount}} 
+        </a>
+        <span class="text-muted fw-bold d-block">{{item.date | date:'medium'}}</span>
+      </div>
+      <!-- end::Description -->
+      <span class="badge fs-8 fw-bolder" [ngClass]="item.tranTypeCode === 'TDB' ? 'badge-light-success' : 'badge-light-danger'">{{ item.tranType }}</span>
+    </div>
+    <!-- end:Item -->
+  </div>
+  <!-- end::Body -->
+  

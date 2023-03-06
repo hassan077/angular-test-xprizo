@@ -1,0 +1,36 @@
+export class PreferenceModel {
+    "id": 0;
+    "hashId": "string";
+    "isCookiesAllowed": true;
+    "isUserNameVisible": true;
+    "isEmailVisible": true;
+    "isPhoneVisible": true;
+    "isLocationVisible": true;
+    "receiveSupportNotification": true;
+    "latLng": "string";
+    "profilePicture": "string";
+    "notificationCount": 0;
+    "notificationPushToken": "string";
+    "agentDepositFee": 0;
+    "agentWithdrawalFee": 0;
+    "transferFee": 0;
+    "merchantLevel": 0;
+    "merchantFee": 0;
+    "payFeesFromSavings": true;
+    "lastLogin": "2023-03-05T15:09:24.722Z";
+    "registeredOn": "2023-03-05T15:09:24.722Z";
+    "recruitedOn": "2023-03-05T15:09:24.722Z";
+    "agentId": 0;
+    "agentCommission": 0;
+    "isSubAgent": true;
+    "notifyViaEmail": true;
+    "notifyOnNewApproval": true;
+    "notifyOnNewTransaction": true;
+    "notifyOnNewTicket": true;
+    "approvalWebhook": "string";
+    "paymentWebhook": "string";
+    "requestPaymentWebhook": "string";
+    "allowMarketingEmails": true;
+    "defaultOTPType": "string";
+    "language": "string"
+  }
